@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="utf-8">
+
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<style>
+
+</style>
+
+<body>
+  <div class="" id="nav-placeholder">
+
+  </div>
+
+  <div class="container">
+   <div class="row">
+     <div class="col-sm-12" id="formholder">
+       What kind of products are you looking for?
+       <div class="form-check" id="product_type">
+          <input class="form-check-input" type="checkbox" value="" id="shampooCheck">
+          <label class="form-check-label" for="shampooCheck">
+            Shampoo
+          </label>
+         </div>
+         <div class="form-check">
+         <input class="form-check-input" type="checkbox" value="" id="conditionerCheck">
+         <label class="form-check-label" for="conditionerCheck">
+           Conditioner
+         </label>
+         </div>
+         <div class="form-check">
+         <input class="form-check-input" type="checkbox" value="" id="leaveinCheck">
+         <label class="form-check-label" for="leaveinCheck">
+          Leave-In
+         </label>
+         </div>
+         <div class="form-check">
+         <input class="form-check-input" type="checkbox" value="" id="gelCheck">
+         <label class="form-check-label" for="gelCheck">
+         Gel
+         </label>
+         </div>
+         <div class="form-check">
+         <input class="form-check-input" type="checkbox" value="" id="mousseCheck">
+         <label class="form-check-label" for="mousseCheck">
+         Mousse/Foam
+         </label>
+       </div>
+
+       What is your hair porosity?
+       <div class="form-check" id="porosity">
+          <input class="form-check-input" type="radio" name="porosity" id="lowporadio">
+          <label class="form-check-label" for="lowporadio">
+            Low
+          </label>
+         </div>
+         <div class="form-check">
+         <input class="form-check-input" type="radio" name="porosity" id="medporadio">
+         <label class="form-check-label" for="medporadio">
+           Medium
+         </label>
+         </div>
+         <div class="form-check">
+         <input class="form-check-input" type="radio" name="porosity" id="hiporadio">
+         <label class="form-check-label" for="hiporadio">
+          High
+         </label>
+         </div>
+         <div class="form-check">
+          <input class="form-check-input" type="radio" name="porosity" id="idkradio" checked>
+          <label class="form-check-label" for="idkradio">
+            Don't know
+          </label>
+       </div>
+
+       What is your hair strand thickness?
+       <div class="form-check" id="thickness">
+         <input class="form-check-input" type="radio" name="thickness" id="lowthickradio">
+         <label class="form-check-label" for="lowthickradio">
+           Low (fine hair)
+         </label>
+         </div>
+         <div class="form-check">
+         <input class="form-check-input" type="radio" name="thickness" id="medthickradio">
+         <label class="form-check-label" for="medthickradio">
+          Medium
+         </label>
+         </div>
+         <div class="form-check">
+         <input class="form-check-input" type="radio" name="thickness" id="highthickradio">
+         <label class="form-check-label" for="highthickradio">
+         High (coarse hair)
+         </label>
+         </div>
+         <div class="form-check">
+         <input class="form-check-input" type="radio" name="thickness" id="idkthickradio" checked>
+         <label class="form-check-label" for="idkthickradio">
+           Don't know
+         </label>
+       </div>
+
+       Do you struggle with frizz or dryness?
+       <div class="form-check" id="frizz">
+         <input class="form-check-input" type="radio" name="frizz" id="yesfrizzradio">
+         <label class="form-check-label" for="yesfrizzradio">
+          Yes
+         </label>
+         </div>
+         <div class="form-check">
+          <input class="form-check-input" type="radio" name="frizz" id="nofrizzradio" checked>
+          <label class="form-check-label" for="nofrizzradio">
+            No
+          </label>
+       </div>
+
+        <button type="button" class="btn mybutton" onclick="getForm()">Get Recommendations</button>
+
+       <!-- Do you struggle with over-hydrated or greasy hair?
+       <div class="form-check" id="hydration">
+         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+         <label class="form-check-label" for="flexRadioDefault1">
+           Yes
+         </label>
+         </div>
+         <div class="form-check">
+           <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+           <label class="form-check-label" for="flexRadioDefault2">
+             No
+           </label>
+       </div>
+
+       How does your hair feel about protein?
+       <div class="form-check" id="protein">
+         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+         <label class="form-check-label" for="flexRadioDefault1">
+         My hair is protein-sensitive (does not like protein products)
+         </label>
+         </div>
+         <div class="form-check">
+         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+         <label class="form-check-label" for="flexRadioDefault1">
+         My hair likes some protein, but not too much
+         </label>
+         </div>
+         <div class="form-check">
+         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+         <label class="form-check-label" for="flexRadioDefault1">
+         My hair responds well to products with a lot of protein
+         </label>
+         </div>
+         <div class="form-check">
+         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+         <label class="form-check-label" for="flexRadioDefault2">
+         Don't know
+         </label>
+       </div> -->
+     </div>
+     <div class="row">
+       <div class="col-sm-12" id="output">
+       <table></table></div>
+     </div>
+
+   </div>
+
+
+
+ </div>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   <script src="https://d3js.org/d3.v4.js"></script>
+   <script src="https://d3js.org/d3-array.v2.min.js"></script>
+   <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+     <script>
+     $(function(){
+     $("#nav-placeholder").load("nav.html");
+     });
+     </script>
+     <script>
+     var my_data = [];
+     d3.csv("https://raw.githubusercontent.com/morganoneka/haircare/main/output/products_with_scores.csv", function(data){
+       console.log(data);
+       my_data=data;
+     });
+
+     function getForm()
+    {
+      let product_types = {
+        shampoo: d3.select("#shampooCheck").property("checked"),
+        conditioner: d3.select("#conditionerCheck").property("checked"),
+        leavein: d3.select("#leaveinCheck").property("checked"),
+        gel: d3.select("#gelCheck").property("checked"),
+        mousse: d3.select("#mousseCheck").property("checked"),
+        isValid(){
+          return this.shampoo + this.conditioner + this.leavein + this.gel + this.mousse >= 1;
+        }
+      }
+
+      let porosity = {
+        low: d3.select("#lowporadio").property("checked"),
+        medium: d3.select("#medporadio").property("checked"),
+        high: d3.select("#hiporadio").property("checked"),
+        dontknow: d3.select("#gelCheck").property("checked"),
+        isValid(){
+          return this.low + this.medium + this.high + this.dontknow === 1;
+        }
+      }
+
+      let thickness = {
+        low: d3.select("#lowthickradio").property("checked"),
+        medium: d3.select("#medthickradio").property("checked"),
+        high: d3.select("#highthickradio").property("checked"),
+        dontknow: d3.select("#idkthickradio").property("checked"),
+        isValid(){
+          return this.low + this.medium + this.high + this.dontknow === 1;
+        }
+      }
+
+      let frizz = {
+        yes: d3.select("#yesfrizzradio").property("checked"),
+        no: d3.select("#nofrizzradio").property("checked"),
+        isValid(){
+          return this.yes + this.no  === 1;
+        }
+      }
+
+      output_products = ['shampoo', 'conditioner', 'leavein', 'gel', 'mousse'].filter(x => product_types[x]);
+
+      scores = [];
+      if (porosity.low){
+        scores.push("LowPorosity");
+      }
+      if (porosity.high){
+        scores.push("HighPorosity");
+      }
+      if (thickness.low){
+        scores.push("Fine");
+      }
+      if (thickness.high){
+        scores.push("Coarse");
+      }
+      if (frizz.yes){
+        scores.push("Frizz");
+        scores.push("Dry");
+      }
+
+      product_filter = my_data.filter(x => output_products.includes(x.ProductType));
+      for (const element of product_filter){
+        element.Score = scores.map(sc => parseFloat(element[sc])).reduce((x, y) => x + y, 0);
+
+      }
+
+
+      sorted = product_filter.sort(function(a,b){
+        return(a.Score - b.Score);
+      })
+      console.log(sorted);
+
+      d3.select('#output').select('table').remove();
+      var table = d3.select('#output').append('table').attr('class','table mytable');
+      var thead = table.append('thead').attr('class','mythead')
+      var	tbody = table.append('tbody');
+
+
+      columns = ['Product', 'ProductType'];
+      // append the header row
+      thead.append('tr')
+        .selectAll('th')
+        .data(columns).enter()
+        .append('th')
+          .text(function (column) { return column; });
+
+
+      // create a row for each object in the data
+      var rows = tbody.selectAll('tr')
+        .data(sorted)
+        .enter()
+        .append('tr');
+
+      // create a cell in each row for each column
+      var cells = rows.selectAll('td')
+        .data(function (row) {
+          return columns.map(function (column) {
+            return {column: column, value: row[column]};
+          });
+        })
+        .enter()
+        .append('td')
+          .text(function (d) { return d.value; });
+    }
+
+
+     </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+config.ini
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+notebooks/in_progress

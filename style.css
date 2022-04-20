@@ -1,0 +1,36 @@
+h1, h2, h3, h4{
+      font-family: 'Orelega One', cursive;
+}
+
+.mybutton{
+  background-color: #c261ec;
+  color: #fff;
+  font-family: 'Orelega One', cursive;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+.myjumbo{
+  background-color: #e9bbfd;
+}
+.mynav{
+  background-color: #c261ec;
+  font-family: 'Orelega One', cursive;
+}
+
+.mynav a{
+  color: #fff;
+}
+
+.mytable tr:nth-child(odd) {
+  background-color: #f4dcfe;
+}
+
+.mytable tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.mythead{
+  background-color: #c261ec;
+  font-family: 'Orelega One', cursive;
+}
