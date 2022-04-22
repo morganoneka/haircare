@@ -190,7 +190,7 @@
      </script>
      <script>
      var my_data = [];
-     d3.csv("https://raw.githubusercontent.com/morganoneka/haircare/main/output/products_with_scores.csv?token=GHSAT0AAAAAABRTQAMAXJ6NIR3OV22KMPDUYTC27AA", function(data){
+     d3.csv("https://raw.githubusercontent.com/morganoneka/haircare/main/output/products_with_scores.csv", function(data){
        console.log(data);
        my_data=data;
      });
@@ -261,7 +261,7 @@
         'conditioner': 'conditioner',
         'leave-in':'leavein',
         'gel/custard':'gel',
-        'mousse/foam':'mousse' 
+        'mousse/foam':'mousse'
       }
 
       product_filter = my_data.filter(x => output_products.includes(product_type_map[x.ProductType]));
@@ -307,22 +307,6 @@
           .enter()
           .append('td')
           .html(function (d) { return d.value; });
-
-      // create a cell in each row for each column
-      // var cells = rows.selectAll('td')
-      //   .data(function (row) {
-      //     return columns.map(function (column) {
-      //       return {column: column, value: row[column]};
-      //     });
-      //   })
-      //   .enter()
-      //   .append('td')
-      //     .text(function (d) { return d.value; });
-
-      // var cells = rows.selectAll('td')
-      //   .data.enter()
-      //   .append('td')
-      //     .text(function (d) { return d.value; });
     }
 
 
