@@ -190,7 +190,7 @@
      </script>
      <script>
      var my_data = [];
-     d3.csv("https://raw.githubusercontent.com/morganoneka/haircare/main/output/products_with_scores.csv", function(data){
+     d3.csv("https://raw.githubusercontent.com/morganoneka/haircare/main/output/products_with_scores.csv?token=GHSAT0AAAAAABRTQAMAXJ6NIR3OV22KMPDUYTC27AA", function(data){
        console.log(data);
        my_data=data;
      });
@@ -256,7 +256,15 @@
         scores.push("Dry");
       }
 
-      product_filter = my_data.filter(x => output_products.includes(x.ProductType));
+      product_type_map = {
+        'shampoo': 'shampoo',
+        'conditioner': 'conditioner',
+        'leave-in':'leavein',
+        'gel/custard':'gel',
+        'mousse/foam':'mousse' 
+      }
+
+      product_filter = my_data.filter(x => output_products.includes(product_type_map[x.ProductType]));
       for (const element of product_filter){
         element.Score = scores.map(sc => parseFloat(element[sc])).reduce((x, y) => x + y, 0);
 
@@ -266,7 +274,6 @@
       sorted = product_filter.sort(function(a,b){
         return(a.Score - b.Score);
       })
-      console.log(sorted);
 
       d3.select('#output').select('table').remove();
       var table = d3.select('#output').append('table').attr('class','table mytable');
@@ -274,7 +281,7 @@
       var	tbody = table.append('tbody');
 
 
-      columns = ['Product', 'ProductType'];
+      columns = ['Product Image', 'Product'];
       // append the header row
       thead.append('tr')
         .selectAll('th')
@@ -289,16 +296,33 @@
         .enter()
         .append('tr');
 
+        var cells = rows.selectAll('td')
+          .data(function (row) {
+            // stuff = {image: "".concat('<img src="', row.Image, '">'), product: "".concat('<a href="', row.URL, '">', row.Product,"</a>")}
+            stuff = [{column: "image", value:"".concat('<img src="', row.Image, '" class="img-thumbnail">')},
+          {column: "product", value: "".concat('<a href="', row.URL, '">', row.Product,"</a>")}]
+            console.log(stuff)
+            return (stuff);
+          })
+          .enter()
+          .append('td')
+          .html(function (d) { return d.value; });
+
       // create a cell in each row for each column
-      var cells = rows.selectAll('td')
-        .data(function (row) {
-          return columns.map(function (column) {
-            return {column: column, value: row[column]};
-          });
-        })
-        .enter()
-        .append('td')
-          .text(function (d) { return d.value; });
+      // var cells = rows.selectAll('td')
+      //   .data(function (row) {
+      //     return columns.map(function (column) {
+      //       return {column: column, value: row[column]};
+      //     });
+      //   })
+      //   .enter()
+      //   .append('td')
+      //     .text(function (d) { return d.value; });
+
+      // var cells = rows.selectAll('td')
+      //   .data.enter()
+      //   .append('td')
+      //     .text(function (d) { return d.value; });
     }
 
 
