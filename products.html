@@ -264,7 +264,23 @@
         'mousse/foam':'mousse'
       }
 
-      product_filter = my_data.filter(x => output_products.includes(product_type_map[x.ProductType]));
+      // input: the whole row
+      function isRelevantProduct(entry){
+        // only care about the product type string
+        productString = entry.ProductType
+
+        // create list by splitting by comma
+        productList = productString.split(", ")
+        console.log(productList)
+
+        // see if any tags are wanted
+        booleanList = productList.map(x => output_products.includes(product_type_map[x]))
+        console.log(booleanList)
+
+        return(booleanList.some(function(e) {return e}))
+      }
+
+      product_filter = my_data.filter(x => isRelevantProduct(x));
       for (const element of product_filter){
         element.Score = scores.map(sc => parseFloat(element[sc])).reduce((x, y) => x + y, 0);
 
